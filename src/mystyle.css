@@ -74,3 +74,19 @@ button {
 button:hover {
   background-color: #bf23b7;
 }
+
+.imgbox {
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  padding:10px;
+}
+
+.img-control {
+  max-width: 180px;
+  height: 180px;
+}
+
+.info{
+  flex:1;
+}

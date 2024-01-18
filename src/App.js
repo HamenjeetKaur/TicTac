@@ -1,7 +1,9 @@
 import React from 'react';
 import './mystyle.css';
+import img from'./myimage.jpg';
 
 import { useState } from 'react';
+
 function Square({value, onSquareClick}) {
   return <button className="square" onClick={onSquareClick}>{value}</button>;
 }
@@ -11,13 +13,16 @@ function Square({value, onSquareClick}) {
     if (squares[i] || calculateWinner(squares)) {
       return;
     }
-    const nextSquares = squares.slice();
+    const nextSquares = squares.slice(); 
     if (xIsNext) {
       nextSquares[i] = "X";
+      document.getElementById("Mess").innerHTML= "First Player is playing."
     } else {
       nextSquares[i] = "O";
+      document.getElementById("Mess").innerHTML= "Second Player is playing."
     }
     onPlay(nextSquares);
+    
   }
 
   const winner = calculateWinner(squares);
@@ -30,7 +35,8 @@ function Square({value, onSquareClick}) {
   return (
     <>
      <div className="status">{status}</div>
-<div className="board-row">
+     <Id />
+     <div className="board-row">
         <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
         <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
         <Square value={squares[2]} onSquareClick={() => handleClick(2)} />
@@ -108,3 +114,18 @@ function calculateWinner(squares) {
   }
   return null;
 }
+
+
+function Id(){
+  return(
+  <div className="imgbox"> 
+  <img className="img-control" src= {img}/> 
+  <div className="info"> 
+  <h4>Student Name: Hamenjeet Kaur</h4>
+  <h4>Student Id: 22053349</h4><br></br>
+  <h5 id="Mess"></h5>
+  </div>
+  </div>
+  )
+ }
+
